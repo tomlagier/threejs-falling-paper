@@ -2,4 +2,8 @@
  * Hub for app-wide config, etc
  */
 
-export default {};
+/* globals THREE */
+
+export default {
+  clock: new THREE.Clock()
+};

@@ -38,7 +38,7 @@
     "build": "./node_modules/.bin/gulp"
   },
   "local": {
-    "serverAddress": "cube-testing.projects.dev"
+    "serverAddress": "falling-paper.projects.dev"
   },
   "hostPort": "8080"
 }
