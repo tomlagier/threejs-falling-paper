@@ -10,7 +10,7 @@ export default class ThreeCameras {
   constructor() {
     _.extend(this, {
       main: new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000),
-      cube: new THREE.CubeCamera(1, 1000, 256)
+      // cube: new THREE.CubeCamera(1, 1000, 256)
     });
 
     this.setCameraPositions();
@@ -20,7 +20,7 @@ export default class ThreeCameras {
     this.main.position.set(0, 7, 0);
     this.main.lookAt(new THREE.Vector3(0, 0, 0));
 
-    this.cube.renderTarget.minFilter = THREE.LinearMipMapLinearFilter;
+    // this.cube.renderTarget.minFilter = THREE.LinearMipMapLinearFilter;
   }
 
   setup() {

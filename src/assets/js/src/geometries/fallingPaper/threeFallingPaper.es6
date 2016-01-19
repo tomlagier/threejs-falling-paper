@@ -16,14 +16,13 @@ export default class ThreeFallingPaper extends ThreeGeometryFile {
     this.load();
   }
   
-  onLoad(object) {
-    let material = new THREE.MeshLambertMaterial( { 
-      color: 0x00ff00, 
-      morphTargets: true,
-      side: THREE.DoubleSide 
-    } );
+  onLoad(object, mat) {
+    let material = mat[0];
+    material.shininess = 1;
+    material.reflectivity = 0.25;
+    material.side = THREE.DoubleSide;
+    material.morphTargets = true;
     this.paper = new THREE.Mesh(object, material);
-    
     this.paper.castShadow = true;
     this.paper.receiveShadow = true;
     ThreeHub.scene.add(this.paper);
@@ -37,19 +36,30 @@ export default class ThreeFallingPaper extends ThreeGeometryFile {
       this.mixer.update(ThreeHub.clock.getDelta());
     })
     
-    let tableGeo = new THREE.PlaneGeometry(100, 100, 2);
-    let tableMat = new THREE.MeshLambertMaterial({
-      color: 0xffffff,
-      emissive: 0x000000,
+    let tableGeo = new THREE.PlaneGeometry(100, 100, 100);
+    let tableMat = new THREE.MeshPhongMaterial({
+      color: 0x0000ff,
       side: THREE.DoubleSide
     })
     this.table = new THREE.Mesh(tableGeo, tableMat);
     this.table.castShadow = true;
     this.table.receiveShadow = true;
     this.table.rotateX(-Math.PI/2);
-    this.table.position.set(0, -1, 0);
+    this.table.position.set(0, -0.5, 0);
     
     ThreeHub.scene.add(this.table);
+    
+    let cubeGeo = new THREE.BoxGeometry(1, 1, 1);
+    let cubeMat = new THREE.MeshLambertMaterial({
+      color: 0xff0000
+    })
+    
+    let cube = new THREE.Mesh(cubeGeo, cubeMat);
+    cube.castShadow = true;
+    cube.receiveShadow = true;
+    cube.position.set(0, 1, 0);
+    
+    ThreeHub.scene.add(cube);
     
   }
   

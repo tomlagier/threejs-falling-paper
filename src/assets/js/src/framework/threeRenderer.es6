@@ -9,9 +9,8 @@ export default class ThreeRenderer {
   constructor(options = {
     antialias: true,
     autoClear: false,
-    shadowMap: {enabled: true, type: THREE.PCFShadowMap},
     sortObjects: false,
-    alpha: true,
+    alpha: false,
     gammaInput: true,
     gammaOutput: true,
     precision: 'highp',
@@ -19,7 +18,8 @@ export default class ThreeRenderer {
   }) {
 
     this.WebGLRenderer = new THREE.WebGLRenderer(options);
-
+    this.WebGLRenderer.shadowMap.enabled = true;
+    this.WebGLRenderer.shadowMap.type = THREE.PCFShadowMap;
     this.WebGLRenderer.setSize(window.innerWidth, window.innerHeight);
     this.WebGLRenderer.setClearColor(0x000000, 1);
     this.WebGLRenderer.setPixelRatio(window.devicePixelRatio);
