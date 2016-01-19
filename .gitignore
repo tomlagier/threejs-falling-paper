@@ -8,7 +8,6 @@ composer.lock
 *.bundle/
 deploy/
 build/build.tar.gz
-target/
 
 ### Bower ###
 bower_components
