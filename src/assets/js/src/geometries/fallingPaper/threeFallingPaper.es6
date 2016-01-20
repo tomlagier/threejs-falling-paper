@@ -36,7 +36,7 @@ export default class ThreeFallingPaper extends ThreeGeometryFile {
       ThreeHub.scene.renderer.addRenderCallback('animation.paper', () => {
         this.mixer.update(ThreeHub.clock.getDelta());
       })
-    }, 300)
+    })
     
     let tableGeo = new THREE.PlaneGeometry(100, 100, 100);
     let tableMat = new THREE.MeshPhongMaterial({
@@ -46,7 +46,7 @@ export default class ThreeFallingPaper extends ThreeGeometryFile {
     this.table = new THREE.Mesh(tableGeo, tableMat);
     this.table.receiveShadow = true;
     this.table.rotateX(-Math.PI/2);
-    this.table.position.set(0, -2, 0);
+    this.table.position.set(0, -1, 0);
     
     ThreeHub.scene.add(this.table);
     

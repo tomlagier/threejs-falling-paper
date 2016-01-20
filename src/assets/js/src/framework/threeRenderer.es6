@@ -19,7 +19,7 @@ export default class ThreeRenderer {
 
     this.WebGLRenderer = new THREE.WebGLRenderer(options);
     this.WebGLRenderer.shadowMap.enabled = true;
-    // this.WebGLRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    this.WebGLRenderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.WebGLRenderer.setSize(window.innerWidth, window.innerHeight);
     this.WebGLRenderer.setClearColor(0x000000, 1);
     this.WebGLRenderer.setPixelRatio(window.devicePixelRatio);
