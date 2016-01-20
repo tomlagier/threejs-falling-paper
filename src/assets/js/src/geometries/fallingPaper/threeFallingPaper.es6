@@ -32,9 +32,11 @@ export default class ThreeFallingPaper extends ThreeGeometryFile {
     let action = new THREE.AnimationAction(clip, 0, 1, 1, THREE.LoopOnce);
     this.mixer.addAction(action);
     
-    ThreeHub.scene.renderer.addRenderCallback('animation.paper', () => {
-      this.mixer.update(ThreeHub.clock.getDelta());
-    })
+    setTimeout(() => {
+      ThreeHub.scene.renderer.addRenderCallback('animation.paper', () => {
+        this.mixer.update(ThreeHub.clock.getDelta());
+      })
+    }, 300)
     
     let tableGeo = new THREE.PlaneGeometry(100, 100, 100);
     let tableMat = new THREE.MeshPhongMaterial({
