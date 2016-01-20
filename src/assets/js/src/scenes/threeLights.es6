@@ -9,7 +9,7 @@ export default class ThreeLights {
   constructor() {
     this.lights = {
       ambientLight: new THREE.AmbientLight(0x909090),
-      spotLight: new THREE.SpotLight(0xffffff, 1, 0, Math.PI/3, 1),
+      spotLight: new THREE.SpotLight(0xffffff, 1, 0, Math.PI/3),
       // directlight: new THREE.DirectionalLight(0xEEEEEE),
       // pointLight1: new THREE.PointLight(0xffffff, 0.15),
       // pointLight2: new THREE.PointLight(0xffffff, 0.15),
@@ -40,7 +40,7 @@ export default class ThreeLights {
     spotlight.target.position.set(0, 0, 0);
     spotlight.castShadow = true;
     window.spotlight = spotlight;
-    spotlight.shadow.camera.far = 1000;
+    spotlight.shadow.camera.far = 10;
     spotlight.shadow.camera.near = 1;
     spotlight.shadow.camera.fov = 90;
     spotlight.shadow.mapSize = new THREE.Vector2(4096, 4096);
