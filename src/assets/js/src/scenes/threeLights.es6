@@ -10,7 +10,7 @@ export default class ThreeLights {
     this.lights = {
       ambientLight: new THREE.AmbientLight(0x909090),
       spotLight: new THREE.SpotLight(0xffffff, 1, 0, 0.4),
-      directlight: new THREE.DirectionalLight(0xEEEEEE)
+      // directlight: new THREE.DirectionalLight(0xEEEEEE)
       // pointLight1: new THREE.PointLight(0xffffff, 0.15),
       // pointLight2: new THREE.PointLight(0xffffff, 0.15),
       // pointLight3: new THREE.PointLight(0xffffff, 0.15),
@@ -31,18 +31,31 @@ export default class ThreeLights {
   }
 
   setupLightPositions(){
-    this.lights.directlight.target.position.set(0, 0, 0);
+    // this.lights.directlight.target.position.set(0, 0, 0);
+    // this.lights.directlight.castShadow = true;
+    // this.lights.directlight.shadow.camera.far = 100;
+    // this.lights.directlight.shadow.camera.near = 1;
     let spotlight = this.lights.spotLight;
-    spotlight.position.set(0, 7, 0);
+    spotlight.position.set(0, 50, 0);
     spotlight.target.position.set(0, 0, 0);
     spotlight.castShadow = true;
     window.spotlight = spotlight;
-    spotlight.shadowCameraFar = 21.1;
-    spotlight.shadowCameraNear = 1;
-    spotlight.shadowCameraFov = 10;
+    spotlight.shadow.camera.far = 100;
+    spotlight.shadow.camera.near = 1;
+    spotlight.shadow.camera.fov = 90;
+    spotlight.shadow.mapSize = new THREE.Vector2(2048, 2048);
+
     
+    // let d = 15;
+     
+    // spotlight.shadow.camera.left = -d;
+    // spotlight.shadow.camera.right = d;
+    // spotlight.shadow.camera.top = d * 1.5;
+    // spotlight.shadow.camera.bottom = -d;
+    
+    // spotlight.shadow.camera.updateProjectionMatrix();
     ThreeHub.scene.add(new THREE.SpotLightHelper(spotlight));
-    window.spotlight = spotlight;
+    // window.spotlight = spotlight;
     // this.lights.pointLight1.position.set(25, 25, 25);
     // this.lights.pointLight2.position.set(25, 25, -25);
     // this.lights.pointLight3.position.set(25, -25, 25);

@@ -11,7 +11,7 @@ import ThreeHub from '../../framework/threeHub.es6';
 export default class ThreeFallingPaper extends ThreeGeometryFile {
   constructor() {
     super();
-    this.url = ['assets/models/falling-paper.json'];
+    this.url = ['assets/models/cube.json'];
     this.createGroups();
     this.load();
   }
@@ -42,24 +42,35 @@ export default class ThreeFallingPaper extends ThreeGeometryFile {
       side: THREE.DoubleSide
     })
     this.table = new THREE.Mesh(tableGeo, tableMat);
-    this.table.castShadow = true;
     this.table.receiveShadow = true;
     this.table.rotateX(-Math.PI/2);
-    this.table.position.set(0, -0.5, 0);
+    this.table.position.set(0, -2, 0);
     
     ThreeHub.scene.add(this.table);
     
-    let cubeGeo = new THREE.BoxGeometry(1, 1, 1);
+    // let cubeGeo = new THREE.BoxGeometry(1, 1, 1);
     let cubeMat = new THREE.MeshLambertMaterial({
-      color: 0xff0000
+      color: 0xff0000,
+      side: THREE.DoubleSide
     })
     
-    let cube = new THREE.Mesh(cubeGeo, cubeMat);
-    cube.castShadow = true;
-    cube.receiveShadow = true;
-    cube.position.set(0, 1, 0);
+    // let cube = new THREE.Mesh(cubeGeo, cubeMat);
+    // cube.castShadow = true;
+    // cube.receiveShadow = true;
+    // cube.position.set(0, 1, 0);
     
-    ThreeHub.scene.add(cube);
+    // ThreeHub.scene.add(cube);
+    
+    // let planeGeo = new THREE.BoxGeometry(1.5, 1.5, 0.001);
+    // // let planeGeo = new THREE.PlaneGeometry(1.5, 1.5, 20);
+    
+    // let plane = new THREE.Mesh(planeGeo, cubeMat);
+    // plane.castShadow = true;
+    // plane.receiveShadow = true;
+    // plane.position.set(0, 2, 0);
+    // plane.rotateX(-Math.PI/2);
+    
+    // ThreeHub.scene.add(plane);
     
   }
   
